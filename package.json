@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://gitlab.com/theamazingfedex/socketshare/issues"
   },
-  "homepage": "https://gitlab.com/theamazingfedex/socketshare#README"
+  "homepage": "https://gitlab.com/theamazingfedex/socketshare#README",
+  "dependencies": {
+    "child-process-promise": "^1.1.0",
+    "cute-files": "^1.0.2"
+  }
 }
