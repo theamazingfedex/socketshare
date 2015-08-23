@@ -1,0 +1,19 @@
+{
+  "name": "socketshare",
+  "version": "1.0.0",
+  "description": "Create a temporary fileserver to share files over the internet.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/theamazingfedex/socketshare.git"
+  },
+  "author": "Daniel Wood",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/theamazingfedex/socketshare/issues"
+  },
+  "homepage": "https://gitlab.com/theamazingfedex/socketshare#README"
+}
