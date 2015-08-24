@@ -33,13 +33,13 @@ externalip((err,ip) => {
 		'\n---Press CTRL + C to stop the server---');
     });
 });
-let app = express();
 let tree = scan(dir, 'files');
-app.use('/', express.static(path.join(__dirname, '../frontend')));
+let app = express();
+app.use('/', express.static(path.join(__dirname, 'frontend')));
 app.use('/files', express.static(process.cwd(), {
 	index: false,
 	setHeaders: function(res, path){
-		res.setHeader('Content-Disposition', contentDisposition(path))
+	    res.setHeader('Content-Disposition', contentDisposition(path));
 	}
 }));
 

@@ -53,9 +53,9 @@ var dir = argv.dir || '.';
 		'!\nMake sure you open this port on your router!!!' + '\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^' + '\n---Press CTRL + C to stop the server---');
 	});
 });
-var app = (0, _express2['default'])();
 var tree = (0, _scan2['default'])(dir, 'files');
-app.use('/', _express2['default']['static'](_path2['default'].join(__dirname, '../frontend')));
+var app = (0, _express2['default'])();
+app.use('/', _express2['default']['static'](_path2['default'].join(__dirname, 'frontend')));
 app.use('/files', _express2['default']['static'](process.cwd(), {
 	index: false,
 	setHeaders: function setHeaders(res, path) {
