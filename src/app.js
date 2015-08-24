@@ -1,10 +1,49 @@
 #!/usr/bin/env node
 
-//import cute from 'cute-files';
 import externalip from 'externalip';
-import {exec} from 'child-process-promise';
+import * as tiny from 'tinyurl';
+import parseArgs from 'minimist';
+import clipboard from 'copy-paste';
+import express from 'express';
+import scan from './scan';
+import path from 'path';
+import contentDisposition from 'content-disposition';
+
+//const MAXINT = Number.MAX_SAFE_INTEGER;
+const argOpts = {
+    //    '-p':'port';
+};
+
+let argv = parseArgs(process.argv,argOpts);
+let port = argv.port || 3000;
+let dir = argv.dir || '.';
+
 
 externalip((err,ip) => {
-    console.log(ip);
+    let local = `http://${ip}:${port}`;
+    tiny.shorten(local, (shortUrl, err) => {
+	clipboard.copy(shortUrl);
+	console.log(
+	    'Acquired TinyUrl: ' + shortUrl + '\n' +
+		'***Copied URL to clipboard***\n' +
+		'SocketShare is running on port ' + port +
+		//`\nExternal IP: ${local}`+
+		'!\nMake sure you open this port on your router!!!' +
+		'\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^' +
+		'\n---Press CTRL + C to stop the server---');
+    });
 });
-exec('cute-files -p 80');
+let app = express();
+let tree = scan(dir, 'files');
+app.use('/', express.static(path.join(__dirname, '../frontend')));
+app.use('/files', express.static(process.cwd(), {
+	index: false,
+	setHeaders: function(res, path){
+		res.setHeader('Content-Disposition', contentDisposition(path))
+	}
+}));
+
+app.get('/scan', function(req,res){
+	res.send(tree);
+});
+app.listen(port);

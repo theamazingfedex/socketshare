@@ -1,10 +1,12 @@
 {
   "name": "socketshare",
   "version": "1.0.0",
+  "main": "bin/app.js",
   "description": "Create a temporary fileserver to share files over the internet.",
-  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node bin/app",
+      "build": "babel src --out-dir bin"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,17 @@
   "homepage": "https://gitlab.com/theamazingfedex/socketshare#README",
   "dependencies": {
     "child-process-promise": "^1.1.0",
-    "cute-files": "^1.0.2"
+    "content-disposition": "^0.5.0",
+    "copy-paste": "^1.1.3",
+    "cute-files": "^1.0.2",
+    "express": "^4.13.3",
+    "goo.gl": "^0.1.4",
+    "minimist": "^1.1.3",
+    "pmp": "^0.5.0",
+    "tinyurl": "^1.0.8"
+  },
+  "devDependencies": {
+    "babel": "^5.8.21",
+    "babel-core": "^5.8.22"
   }
 }
