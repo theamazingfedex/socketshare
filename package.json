@@ -1,6 +1,6 @@
 {
   "name": "socketshare",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/theamazingfedex/socketshare.git"
+    "url": "https://gitlab.com/theamazingfedex/socketshare.git"
   },
   "author": "Daniel Wood",
   "license": "MIT",

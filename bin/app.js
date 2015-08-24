@@ -50,7 +50,7 @@ var dir = argv.dir || '.';
 	var local = 'http://' + ip + ':' + port;
 	tiny.shorten(local, function (shortUrl, err) {
 		_copyPaste2['default'].copy(shortUrl);
-		console.log('Acquired TinyUrl: ' + shortUrl + '\n' + '***Copied URL to clipboard***\n' + 'SocketShare is running on port ' + port +
+		console.log('.\n.\n.\nAcquired TinyUrl: ' + shortUrl + '\n' + '***Copied URL to clipboard***\n' + 'SocketShare is running on port ' + port +
 		//`\nExternal IP: ${local}`+
 		'!\nMake sure you open this port on your router!!!' + '\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^' + '\n---Press CTRL + C to stop the server---');
 	});
