@@ -38,9 +38,7 @@ var _contentDisposition = require('content-disposition');
 var _contentDisposition2 = _interopRequireDefault(_contentDisposition);
 
 //const MAXINT = Number.MAX_SAFE_INTEGER;
-var argOpts = {
-	//    '-p':'port';
-};
+var argOpts = {};
 
 var argv = (0, _minimist2['default'])(process.argv, argOpts);
 var port = argv.port || 3000;
@@ -69,3 +67,5 @@ app.get('/scan', function (req, res) {
 	res.send(tree);
 });
 app.listen(port);
+
+//    '-p':'port';
