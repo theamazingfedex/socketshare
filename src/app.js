@@ -24,7 +24,7 @@ externalip((err,ip) => {
     tiny.shorten(local, (shortUrl, err) => {
 	clipboard.copy(shortUrl);
 	console.log(
-	    'Acquired TinyUrl: ' + shortUrl + '\n' +
+	    '.\n.\n.\nAcquired TinyUrl: ' + shortUrl + '\n' +
 		'***Copied URL to clipboard***\n' +
 		'SocketShare is running on port ' + port +
 		//`\nExternal IP: ${local}`+
