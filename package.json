@@ -1,12 +1,12 @@
 {
   "name": "socketshare",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "bin/app.js",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node bin/app",
-      "build": "babel src --out-dir bin"
+    "start": "node bin/app",
+    "build": "babel src --out-dir bin"
   },
   "repository": {
     "type": "git",
