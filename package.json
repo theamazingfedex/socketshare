@@ -31,5 +31,17 @@
   },
   "devDependencies": {
     "babel": "^5.8.21"
-  }
+  },
+  "keywords": [
+      "socketshare",
+      "share",
+      "files",
+      "local",
+      "server",
+      "external",
+      "cli",
+      "terminal",
+      "cmd",
+      "node"
+  ]
 }
