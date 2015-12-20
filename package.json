@@ -1,6 +1,6 @@
 {
   "name": "socketshare",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -33,15 +33,15 @@
     "babel": "^5.8.21"
   },
   "keywords": [
-      "socketshare",
-      "share",
-      "files",
-      "local",
-      "server",
-      "external",
-      "cli",
-      "terminal",
-      "cmd",
-      "node"
+    "socketshare",
+    "share",
+    "files",
+    "local",
+    "server",
+    "external",
+    "cli",
+    "terminal",
+    "cmd",
+    "node"
   ]
 }
