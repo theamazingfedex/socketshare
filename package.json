@@ -29,7 +29,7 @@
     "tinyurl": "^1.0.8"
   },
   "devDependencies": {
-    "babel": "^6.3.13"
+    "babel": "^6.3.26"
   },
   "keywords": [
     "socketshare",
