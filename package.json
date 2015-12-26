@@ -21,6 +21,7 @@
   "bin": {
     "socketshare": "bin/app.js"
   },
+  "preferGlobal": true,
   "dependencies": {
     "content-disposition": "^0.5.0",
     "copy-paste": "^1.1.3",
