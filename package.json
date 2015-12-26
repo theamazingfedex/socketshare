@@ -4,9 +4,9 @@
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
     "test": "babel-tape-runner 'tests/**/*.js'",
-    "start": "node bin/app",
+    "start": "npm run build && node bin/app",
     "build": "babel src --out-dir bin",
-    "prepublish": "babel src --out-dir bin"
+    "publish": "babel src --out-dir bin && npm publish"
   },
   "repository": {
     "type": "git",
