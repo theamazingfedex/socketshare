@@ -5,18 +5,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node bin/app",
-    "build": "babel src --out-dir bin"
+    "build": "babel src --out-dir bin",
+    "prepublish": "babel src --out-dir bin"
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/theamazingfedex/socketshare.git"
+    "url": "https://github.com/theamazingfedex/socketshare"
   },
   "author": "Daniel Wood",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/theamazingfedex/socketshare/issues"
+    "url": "https://github.com/theamazingfedex/socketshare"
   },
-  "homepage": "https://gitlab.com/theamazingfedex/socketshare#README",
+  "homepage": "https://github.com/theamazingfedex/socketshare#README",
   "bin": {
     "socketshare": "bin/app.js"
   },
@@ -29,7 +30,13 @@
     "tinyurl": "^1.0.8"
   },
   "devDependencies": {
-    "babel": "^6.3.13"
+    "babel-cli": "^6.3.17",
+    "babel-preset-es2015": "^6.3.13"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   },
   "keywords": [
     "socketshare",
