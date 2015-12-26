@@ -1,7 +1,8 @@
+'use strict';
+
 var fs = require('fs');
 
-
-module.exports = function scan(dir, alias){
+module.exports = function scan(dir, alias) {
 
 	return {
 		name: alias,
@@ -9,28 +10,25 @@ module.exports = function scan(dir, alias){
 		path: alias,
 		items: walk(dir, alias)
 	};
-
 };
 
-
-function walk(dir, prefix){
+function walk(dir, prefix) {
 
 	prefix = prefix || '';
 
-	if(!fs.existsSync(dir)){
+	if (!fs.existsSync(dir)) {
 		return [];
 	}
 
-	return fs.readdirSync(dir).filter(function(f){
+	return fs.readdirSync(dir).filter(function (f) {
 
 		return f && f[0] != '.'; // Ignore hidden files
-
-	}).map(function(f){
+	}).map(function (f) {
 
 		var p = (dir + '/' + f).replace('./', ''),
-			stat = fs.statSync(p);
+		    stat = fs.statSync(p);
 
-		if(stat.isDirectory()){
+		if (stat.isDirectory()) {
 
 			return {
 				name: f,
@@ -38,7 +36,6 @@ function walk(dir, prefix){
 				path: prefix + '/' + p,
 				items: walk(p, prefix)
 			};
-
 		}
 
 		return {
@@ -46,8 +43,6 @@ function walk(dir, prefix){
 			type: 'file',
 			path: prefix + '/' + p,
 			size: stat.size
-		}
-
+		};
 	});
-
 };

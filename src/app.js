@@ -35,7 +35,7 @@ externalip((err,ip) => {
 });
 let tree = scan(dir, 'files');
 let app = express();
-app.use('/', express.static(path.join(__dirname, 'frontend')));
+app.use('/', express.static(path.join(__dirname, '../public')));
 app.use('/files', express.static(process.cwd(), {
 	index: false,
 	setHeaders: function(res, path){
