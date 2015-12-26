@@ -3,7 +3,7 @@
   "version": "1.2.1",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "babel-tape-runner 'tests/**/*.js'",
     "start": "node bin/app",
     "build": "babel src --out-dir bin",
     "prepublish": "babel src --out-dir bin"
@@ -33,7 +33,10 @@
   "devDependencies": {
     "babel": "^6.3.23",
     "babel-preset-es2015": "^6.3.13",
-    "blue-tape": "^0.1.11"
+    "babel-tape-runner": "^2.0.0",
+    "blue-tape": "^0.1.11",
+    "colored-tape": "^1.0.1",
+    "tape": "^4.4.0"
   },
   "babel": {
     "presets": [
