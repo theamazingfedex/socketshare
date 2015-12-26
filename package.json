@@ -1,6 +1,6 @@
 {
   "name": "socketshare",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
