@@ -1,6 +1,6 @@
 {
   "name": "socketshare",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
     "test": "babel-tape-runner 'tests/**/*.js'",
