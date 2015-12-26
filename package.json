@@ -3,10 +3,10 @@
   "version": "1.2.2",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
-    "test": "./node_modules/babel-tape-runner/bin/babel-tape-runner 'tests/**/*.js'",
+    "test": "babel-tape-runner 'tests/**/*.js'",
     "start": "node bin/app",
-    "build": "./node_modules/babel-cli/bin/babel src --out-dir bin",
-    "prepublish": "./node_modules/babel-cli/bin/babel src --out-dir bin"
+    "build": "babel src --out-dir bin",
+    "prepublish": "babel src --out-dir bin"
   },
   "repository": {
     "type": "git",
