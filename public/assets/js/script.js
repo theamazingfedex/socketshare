@@ -22,7 +22,7 @@ $(function(){
 
 			goto(window.location.hash);
 
-			// We are triggering the event. This will execute 
+			// We are triggering the event. This will execute
 			// this function on page load, so that we show the correct folder:
 
 		}).trigger('hashchange');
@@ -98,6 +98,13 @@ $(function(){
 
 		// Clicking on folders
 
+    // fileList.on('dblclick', 'li.folders', function(e) {
+      // e.preventDefault();
+      // var nextDir = $(this).find('a.folders').attr('href');
+      // $.get('zipped', function(data) {
+
+      // });
+    // });
 		fileList.on('click', 'li.folders', function(e){
 			e.preventDefault();
 
