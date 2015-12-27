@@ -1,11 +1,25 @@
-import browser from '../src/browser';
-import scan from '../src/scan';
-import test from 'colored-tape';
+import browser from '../bin/browser';
+import scan from '../bin/scan';
+import test from 'blue-tape';
 
-test('scan test', function (assert) {
-  assert.plan(3);
-  assert.equal(1, 1, '1 should equal 1');
-  assert.ok(browser, 'browser should be OK');
-  assert.ok(scan, 'scan should be OK');
-  // assert.end();
+let [before, after] = [test, test];
+let tree = scan('.', 'files');
+
+test('scan tests', (assert) => {
+  // assert.plan(3);
+
+  let items = tree.items;
+  assert.ok(tree, 'scan() broke. Check the build process and node packages.');
+  assert.ok(items.length >= 1, 'scan(".", "files") should have at least one item.');
+
+  assert.end();
+});
+test('browser tests', (assert) => {
+  assert.ok(browser);
+
+  assert.end();
+});
+
+test.onFinish(() => {
+  console.log(`finished testing stuffs`);
 });
