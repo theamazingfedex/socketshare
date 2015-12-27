@@ -1,5 +1,5 @@
-import browser from '../bin/browser.js';
-import scan from '../bin/scan.js';
+import browser from '../bin/browser';
+import scan from '../bin/scan';
 import test from 'blue-tape';
 
 let [before, after] = [test, test];
