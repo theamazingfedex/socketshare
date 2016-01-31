@@ -1,8 +1,7 @@
-import browser from '../bin/browser';
-import scan from '../bin/scan';
+import browser from '../src/browser';
+import scan from '../src/scan';
 import test from 'blue-tape';
 
-let [before, after] = [test, test];
 let tree = scan('.', 'files');
 
 test('scan tests', (assert) => {
