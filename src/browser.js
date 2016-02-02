@@ -6,8 +6,8 @@ import scan from './scan';
 
 const numCpus = require('os').cpus().length;
 
-export default function(port, dir) {
-  if (cluster.isMaster) {
+export default function(port, dir, doCluster = false) {
+  if (cluster.isMaster && doCluster) {
     for (let i = 0; i < numCpus; i++) {
       cluster.fork();
     }
@@ -16,9 +16,11 @@ export default function(port, dir) {
     });
   }
   else {
-    const pid = cluster.worker.process.pid;
-    const name = cluster.worker.id;
-    console.log(`Starting worker '${name}' with PID: ${pid}`)
+    if (doCluster) {
+      const pid = cluster.worker.process.pid;
+      const name = cluster.worker.id;
+      console.log(`Starting worker '${name}' with PID: ${pid}`)
+    }
 
     let tree = scan(dir, 'files');
     let app = express();
