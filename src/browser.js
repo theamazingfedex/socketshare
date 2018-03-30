@@ -1,4 +1,4 @@
-import cluster from 'cluster'
+import cluster from 'cluster';
 import express from 'express';
 import path from 'path';
 import contentDisposition from 'content-disposition';

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+"use strict";
 
 import cluster from 'cluster';
 import externalip from 'externalip';
