@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
 import cluster from 'cluster';
-import externalip from 'externalip';
 import * as tiny from 'tinyurl';
 import parseArgs from 'minimist';
 import clipboard from 'copy-paste';
 import browser from './browser.js';
 
+const externalip = require('external-ip')();
 const argOpts = {};
 
 let argv = parseArgs(process.argv, argOpts);
