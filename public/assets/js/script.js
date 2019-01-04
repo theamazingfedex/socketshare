@@ -96,8 +96,40 @@ $(function(){
 		});
 
 
-		// Clicking on folders
+		// Right-clicking on folders
+		fileList.on('contextmenu', 'li.folders', function(e) {
+			e.preventDefault();
 
+			let selectedFolder = $(this).find('a.folders').attr('href');
+			let $contextMenu = $('.context-menu');
+			let mouseX = e.pageX;
+			let mouseY = e.pageY;
+			const contextMenuClicked = function(e) {
+				// make calls to the api with the selectedFolder to download a zip.
+				// copy the way that downloading a single file works, but against the /zips endpoint
+
+				alert('downloading: ' + selectedFolder + '.zip');
+				// hide the context menu and remove this onClick listener
+				$contextMenu.css('display', 'none');
+				$contextMenu.css('visibility', 'hidden');
+				$contextMenu.attr("onclick", "").unbind("click");
+			}
+
+			$contextMenu.css('display', 'block');
+			$contextMenu.css('visibility', 'visible');
+			$contextMenu.css('top', mouseY);
+			$contextMenu.css('left', mouseX);
+
+			$contextMenu.on('click', contextMenuClicked);
+			$(document).on('click', function clickedAnywhere() {
+				$contextMenu.off('click', contextMenuClicked);
+				$contextMenu.css('display', 'none');
+				$contextMenu.css('visibility', 'hidden');
+				$(document).off('click', clickedAnywhere);
+			});
+		});
+
+		// Clicking on folders
 		fileList.on('click', 'li.folders', function(e){
 			e.preventDefault();
 

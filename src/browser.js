@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import contentDisposition from 'content-disposition';
 import scan from './scan';
+import getZipFilePath from './zip';
 
 const numCpus = require('os').cpus().length;
 
@@ -27,6 +28,13 @@ export default function(port, dir) {
       index: false,
       setHeaders: function(res, path) {
         res.setHeader('Content-Disposition', contentDisposition(path));
+      }
+    }));
+
+    app.use('/zips', express.static(process.cwd(), {
+      index: false,
+      setHeaders: function(res, path) {
+        res.setHeader('Content-Disposition', contentDisposition(getZipFilePath(path)));
       }
     }));
 

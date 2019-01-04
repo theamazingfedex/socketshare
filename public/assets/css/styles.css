@@ -10,6 +10,26 @@
 	padding:0;
 }
 
+.context-menu {
+	font-size: 14px;
+	color: #CCC;
+	background-color: #23232e;
+	padding: 8px;
+	border: 1px solid #CCC;
+	border-radius: 0px 5px 5px 5px;
+	position: absolute;
+	z-index: 99999;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	display: none;
+	visibility: hidden;
+	margin-left: -35px;
+	margin-top: -99px;
+}
+.context-menu:hover {
+	filter: brightness(150%);
+}
 
 /*-------------------------
 	Demo page
