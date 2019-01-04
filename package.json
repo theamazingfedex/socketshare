@@ -3,7 +3,7 @@
   "version": "1.2.3",
   "description": "Create a temporary fileserver to share files over the internet.",
   "scripts": {
-    "test": "babel-tape-runner 'tests/**/*.js'",
+    "test": "babel-tape-runner ./tests/**/*.js | faucet",
     "start": "npm run build && node bin/app",
     "build": "babel src --out-dir bin",
     "publish": "babel src --out-dir bin && npm publish"
