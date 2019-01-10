@@ -16,7 +16,7 @@ export default function(port, dir) {
       cluster.fork();
     }
     cluster.on('exit', (worker, code, signal) => {
-      console.log(`worker ${worker.process.pid} has died`);
+      console.log(`worker ${worker.process.pid} has died with code: ${code} and signal: ${signal}`);
     });
   }
   else {
@@ -27,7 +27,7 @@ export default function(port, dir) {
     let tree = scan(dir, 'files');
     let app = express();
     app.use('/', express.static(path.join(__dirname, '../public')));
-    app.use('/files', express.static(process.cwd(), {
+    app.use('/files', express.static(dir, {
       index: false,
       setHeaders: function(res, path) {
         res.setHeader('Content-Disposition', contentDisposition(path));
@@ -35,12 +35,14 @@ export default function(port, dir) {
     }));
 
     app.get('/zips/:folderpath', function(req, res) {
-      let folderPath = './' + req.params.folderpath.split('.')[0];
+      let folderPath = dir + '/' + req.params.folderpath.split('.')[0];
+      console.log('requesting zip from folderPath: ', folderPath);
       getPromisedZipFilePath(folderPath).then((zipPath) => {
         res.setHeader('Content-Type', 'application/zip');
         res.setHeader('Content-Disposition', contentDisposition(zipPath));
         res.attachment(zipPath);
 
+        console.log('creating readStream from zipPath: ', zipPath);
         let responseStream = fs.createReadStream(zipPath);
         responseStream.pipe(res);
         onFinished(res, () => {

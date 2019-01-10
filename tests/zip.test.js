@@ -14,14 +14,17 @@ test('zip tests', (assert) => {
     assert.ok(fs.existsSync(testFolderPath), 'Unable to create the test folder for zipping. Check installed dependencies: `fs`')
   }
 
-  const zipFilePath = getZipFilePath(testFolderPath);
-  assert.ok(zipFilePath === expectedZipFilePath, '`getZipFilePath` did not match the expected path.');
+  getZipFilePath(testFolderPath).then(zipFilePath => {
+    assert.ok(zipFilePath === expectedZipFilePath, '`getZipFilePath` did not match the expected path.');
 
-  fs.unlinkSync(zipFilePath);
-  assert.notOk(fs.existsSync(zipFilePath), 'failed to remove the existing zipfile. Check installed dependencies: `fs`');
+    fs.unlinkSync(zipFilePath);
+    assert.notOk(fs.existsSync(zipFilePath), 'failed to remove the existing zipfile. Check installed dependencies: `fs`');
+  });
 
-  const newZipFilePath = getZipFilePath(testFolderPath);
-  assert.ok(newZipFilePath === expectedZipFilePath, '`getZipFilePath` did not create the expected zip file.');
 
-  assert.end();
+  getZipFilePath(testFolderPath).then(newZipFilePath => {
+    assert.ok(newZipFilePath === expectedZipFilePath, '`getZipFilePath` did not create the expected zip file.');
+
+    assert.end();
+  });
 });
