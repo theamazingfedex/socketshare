@@ -100,16 +100,20 @@ $(function(){
 		fileList.on('contextmenu', 'li.folders', function(e) {
 			e.preventDefault();
 
-			let selectedFolder = $(this).find('a.folders').attr('href');
+			let selectedFolder = $(this).find('a.folders').attr('href').substr(1);
 			let $contextMenu = $('.context-menu');
-			let mouseX = e.pageX;
-			let mouseY = e.pageY;
-			const contextMenuClicked = function(e) {
+			let mouseX = e.clientX + 'px';
+			let mouseY = e.clientY + 'px';
+			const contextMenuClicked = function() {
 				// make calls to the api with the selectedFolder to download a zip.
 				// copy the way that downloading a single file works, but against the /zips endpoint
-				let newPath = 'zips' + selectedFolder.slice(5) + '.zip';
+				console.log('opening the context menu.');
+				let pathPrefix = 'zips/';
+				let newPath = selectedFolder.slice(5) + '.zip';
 				currentPath = newPath;
-				window.location = newPath;//encodeURIComponent(newPath);
+				let encodedPath = encodeURIComponent(newPath);
+				console.log('encodedPath: ', encodedPath);
+				window.location = pathPrefix + encodedPath;
 
 				// hide the context menu and remove this onClick listener
 				$contextMenu.css('display', 'none');

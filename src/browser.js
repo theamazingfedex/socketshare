@@ -10,7 +10,7 @@ import getPromisedZipFilePath from './zip';
 
 const numCpus = require('os').cpus().length;
 
-export default function(port, dir) {
+export default function(port, hostedDirectory) {
   if (cluster.isMaster) {
     for (let i = 0; i < numCpus; i++) {
       cluster.fork();
@@ -24,10 +24,10 @@ export default function(port, dir) {
     const name = cluster.worker.id;
     console.log(`Starting worker '${name}' with PID: ${pid}`)
 
-    let tree = scan(dir, 'files');
+    let tree = scan(hostedDirectory, 'files');
     let app = express();
     app.use('/', express.static(path.join(__dirname, '../public')));
-    app.use('/files', express.static(dir, {
+    app.use('/files', express.static(hostedDirectory, {
       index: false,
       setHeaders: function(res, path) {
         res.setHeader('Content-Disposition', contentDisposition(path));
@@ -35,8 +35,11 @@ export default function(port, dir) {
     }));
 
     app.get('/zips/:folderpath', function(req, res) {
-      let folderPath = dir + '/' + req.params.folderpath.split('.')[0];
-      console.log('requesting zip from folderPath: ', folderPath);
+      // TODO: need to finish making remote directories work, as well as local directories (--dir vs clean-run)
+      console.log('requesting zip from folderPath: ', req.params.folderpath);
+      let folderPath = req.params.folderpath;
+      // let folderPath = hostedDirectory + '/' + req.params.folderpath.split('.')[0];
+      // console.log('requesting local path: ', folderPath);
       getPromisedZipFilePath(folderPath).then((zipPath) => {
         res.setHeader('Content-Type', 'application/zip');
         res.setHeader('Content-Disposition', contentDisposition(zipPath));
