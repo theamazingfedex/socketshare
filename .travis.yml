@@ -1,11 +1,7 @@
 language: node_js
 node_js:
-  - "5.0"
-  - "4.2"
-  - "4.1"
-  - "4.0"
-  - "0.12"
-  - "0.10"
-  - "iojs"
+  - "11.0"
+  - "10.13"
+  - "10.0"
 notificiations:
   email: false
