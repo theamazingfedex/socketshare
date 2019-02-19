@@ -107,12 +107,10 @@ $(function(){
 			const contextMenuClicked = function() {
 				// make calls to the api with the selectedFolder to download a zip.
 				// copy the way that downloading a single file works, but against the /zips endpoint
-				console.log('opening the context menu.');
 				let pathPrefix = 'zips/';
-				let newPath = selectedFolder.slice(5) + '.zip';
+				let newPath = selectedFolder.slice(5);
 				currentPath = newPath;
 				let encodedPath = encodeURIComponent(newPath);
-				console.log('encodedPath: ', encodedPath);
 				window.location = pathPrefix + encodedPath;
 
 				// hide the context menu and remove this onClick listener

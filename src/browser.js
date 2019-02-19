@@ -35,17 +35,13 @@ export default function(port, hostedDirectory) {
     }));
 
     app.get('/zips/:folderpath', function(req, res) {
-      // TODO: need to finish making remote directories work, as well as local directories (--dir vs clean-run)
-      console.log('requesting zip from folderPath: ', req.params.folderpath);
+      console.log('User is requesting zip from folderPath: ', req.params.folderpath);
       let folderPath = req.params.folderpath;
-      // let folderPath = hostedDirectory + '/' + req.params.folderpath.split('.')[0];
-      // console.log('requesting local path: ', folderPath);
       getPromisedZipFilePath(folderPath).then((zipPath) => {
         res.setHeader('Content-Type', 'application/zip');
         res.setHeader('Content-Disposition', contentDisposition(zipPath));
         res.attachment(zipPath);
 
-        console.log('creating readStream from zipPath: ', zipPath);
         let responseStream = fs.createReadStream(zipPath);
         responseStream.pipe(res);
         onFinished(res, () => {
