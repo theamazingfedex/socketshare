@@ -8,12 +8,17 @@ module.exports = function getPromisedZipFilePath(sourceDir) {
     // check if the .zip file already exists next to the sourceDir
     const zipName = sourceDir + '.zip';
     // if the .zip file does not exist, create it next to the sourceDir and return the path to it
-    if (!fs.existsSync(zipName)) {
+    if (shouldGenerateNewZipFile(sourceDir)) {
+      console.log(`Generating zip-file from: ${sourceDir}`);
+      if (fs.existsSync(zipName)) {
+        fs.unlinkSync(zipName);
+      }
       const zipStream = addToZip(zipName, sourceDir, {
         $bin: sevenBin.path7za,
         recursive: true
       });
       zipStream.on('end', () => {
+        console.log(`Zip-file generation complete.`);
         destroy(zipStream);
         resolve(zipName);
       });
@@ -24,3 +29,17 @@ module.exports = function getPromisedZipFilePath(sourceDir) {
     }
   });
 };
+
+export function shouldGenerateNewZipFile(filePath) {
+  var zipPath = filePath + '.zip';
+  var zipExists = fs.existsSync(zipPath);
+
+  if (!zipExists) {
+    return true;
+  }
+  else {
+    var folderLastModifiedAtTime = fs.statSync(filePath).mtime;
+    var zipLastModifiedAtTime = fs.statSync(zipPath).mtime;
+    return (folderLastModifiedAtTime - zipLastModifiedAtTime) > 0
+  }
+}
