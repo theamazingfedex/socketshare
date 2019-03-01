@@ -1,7 +1,7 @@
 <h1>SocketShare</h1>
 
 ![TravisCI Build Status](https://travis-ci.org/theamazingfedex/socketshare.svg?branch=master "TravisCI Build Status for: socketshare")
-
+[![Known Vulnerabilities](https://snyk.io/test/npm/socketshare/badge.svg)](https://snyk.io/test/npm/socketshare)
 
 <h3>Install</h3>
 <pre>npm install --global socketshare</pre>
