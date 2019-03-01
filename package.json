@@ -8,8 +8,8 @@
     "build": "babel src --out-dir bin",
     "publish": "babel src --out-dir bin && npm publish",
     "local": "babel-node src/app.js",
-    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
-    "coveralls": "nyc babel-tape-runner ./tests/**.*.js && nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls -v",
+    "coveralls": "nyc babel-tape-runner ./tests/**.*.js && nyc report --reporter=text-lcov | coveralls -v"
   },
   "repository": {
     "type": "git",
