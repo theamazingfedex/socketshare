@@ -1,7 +1,11 @@
 <h1>SocketShare</h1>
 
 ![TravisCI Build Status](https://travis-ci.org/theamazingfedex/socketshare.svg?branch=master "TravisCI Build Status for: socketshare")
+[![Coverage Status](https://coveralls.io/repos/github/theamazingfedex/socketshare/badge.svg?branch=master)](https://coveralls.io/github/theamazingfedex/socketshare?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/socketshare/badge.svg)](https://snyk.io/test/npm/socketshare)
+[![Open Issues](http://githubbadges.herokuapp.com/theamazingfedex/socketshare/issues.svg?style=flat)](https://github.com/boennemann/badges/issues)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <h3>Install</h3>
 <pre>npm install --global socketshare</pre>
