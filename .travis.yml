@@ -1,7 +1,11 @@
 language: node_js
 node_js:
+  - "11.10"
   - "11.0"
+  - "10.15.2"
   - "10.13"
   - "10.0"
 notificiations:
   email: false
+script:
+  - npm run coverage

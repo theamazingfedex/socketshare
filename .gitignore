@@ -3,3 +3,4 @@ bin/
 .DS_Store
 a-test-folder/
 *.zip
+.nyc_output/
