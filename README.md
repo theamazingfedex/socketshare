@@ -1,4 +1,6 @@
 <h1>SocketShare</h1>
+<h6>Create a temporary fileserver to share files over the internet.<h6>
+
 
 [![TravisCI Build Status](https://travis-ci.org/theamazingfedex/socketshare.svg?branch=master "TravisCI Build Status for: socketshare")](https://travis-ci.org/theamazingfedex/socketshare?branch=master)
 [![Coverage Status](https://coveralls.io/repos/github/theamazingfedex/socketshare/badge.svg?branch=master)](https://coveralls.io/github/theamazingfedex/socketshare?branch=master)
