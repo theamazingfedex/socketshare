@@ -8,4 +8,4 @@ node_js:
 notificiations:
   email: false
 script:
-  - npm run coverage
+  - npm run coveralls
