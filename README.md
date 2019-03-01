@@ -5,6 +5,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/npm/socketshare/badge.svg)](https://snyk.io/test/npm/socketshare)
 [![Open Issues](http://githubbadges.herokuapp.com/theamazingfedex/socketshare/issues.svg?style=flat)](https://github.com/boennemann/badges/issues)
 
+[![npm version](https://badge.fury.io/js/socketshare.svg)](https://badge.fury.io/js/socketshare)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 <h3>Install</h3>
