@@ -1,3 +1,4 @@
 src/
 tests/
 .DS_Store
+*.zip
