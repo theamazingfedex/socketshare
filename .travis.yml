@@ -1,35 +1,26 @@
+dist: trusty
+sudo: required
 language: node_js
-notificiations:
-  email: false
-env:
-  global:
-    - NODE_ENV=development
+node_js:
+- "lts/*"
+- "11.10"
+
+os:
+- linux
+
 jobs:
   include:
   - stage: install
     script: npm install
-    node_js:
-      - "11.10"
-      - "11.0"
-      - "10.15.2"
-      - "10.13"
-      - "10.0"
     skip_cleanup: true
   - stage: test
-    script: npm run coveralls
+    script: npm run coverage
     skip_cleanup: true
   - stage: release
-    node_js:
-      - "11.10"
-      - "11.0"
-      - "10.15.2"
-      - "10.13"
-      - "10.0"
+    node_js: lts/*
     deploy:
       provider: script
       skip_cleanup: true
       script:
       - npx semantic-release
     if: branch = master
-# script:
-#   - npm run coveralls
