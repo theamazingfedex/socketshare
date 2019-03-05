@@ -1,31 +1,26 @@
 language: node_js
-node_js:
-  - "11.10"
-  - "11.0"
-  - "10.15.2"
-  - "10.13"
-  - "10.0"
 notificiations:
   email: false
-script:
-  - npm run coveralls
-
 jobs:
   include:
   - stage: install
     script: npm install
     skip_cleanup: true
-
   - stage: test
-    script: npm run report:coverage
+    script: npm run coveralls
     skip_cleanup: true
-
   - stage: release
-    node_js: lts/*
-
+    node_js:
+      - "11.10"
+      - "11.0"
+      - "10.15.2"
+      - "10.13"
+      - "10.0"
     deploy:
       provider: script
       skip_cleanup: true
       script:
       - npx semantic-release
     if: branch = master
+# script:
+#   - npm run coveralls
