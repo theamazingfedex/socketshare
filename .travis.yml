@@ -1,6 +1,9 @@
 language: node_js
 notificiations:
   email: false
+env:
+  global:
+    - NODE_ENV=development
 jobs:
   include:
   - stage: install
