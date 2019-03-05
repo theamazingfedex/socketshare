@@ -1,4 +1,5 @@
 src/
 tests/
 .DS_Store
-*.zip
+.travis.yml
+.releaserc

@@ -9,3 +9,23 @@ notificiations:
   email: false
 script:
   - npm run coveralls
+
+jobs:
+  include:
+  - stage: install
+    script: npm install
+    skip_cleanup: true
+
+  - stage: test
+    script: npm run report:coverage
+    skip_cleanup: true
+
+  - stage: release
+    node_js: lts/*
+
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script:
+      - npx semantic-release
+    if: branch = master
