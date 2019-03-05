@@ -8,6 +8,12 @@ jobs:
   include:
   - stage: install
     script: npm install
+    node_js:
+      - "11.10"
+      - "11.0"
+      - "10.15.2"
+      - "10.13"
+      - "10.0"
     skip_cleanup: true
   - stage: test
     script: npm run coveralls
