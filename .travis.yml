@@ -2,7 +2,7 @@ dist: trusty
 sudo: required
 language: node_js
 node_js:
-- "lts/*"
+- "10.15.3"
 - "11.10"
 
 os:
@@ -17,7 +17,7 @@ jobs:
     script: npm run coverage
     skip_cleanup: true
   - stage: release
-    node_js: lts/*
+    node_js: 10.15.3
     deploy:
       provider: script
       skip_cleanup: true
