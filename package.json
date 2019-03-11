@@ -9,8 +9,7 @@
     "publish": "babel src --out-dir bin && npm publish",
     "local": "babel-node src/app.js",
     "coverage": "nyc npm test && nyc report --reporter=text-lcov | coveralls -v",
-    "coveralls": "nyc babel-tape-runner ./tests/**.*.js && nyc report --reporter=text-lcov | coveralls -v",
-    "semantic-release": "semantic-release"
+    "coveralls": "nyc babel-tape-runner ./tests/**.*.js && nyc report --reporter=text-lcov | coveralls -v"
   },
   "repository": {
     "type": "git",
@@ -19,7 +18,7 @@
   "author": "Daniel Wood",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/theamazingfedex/socketshare/issues"
+    "url": "https://github.com/theamazingfedex/socketshare"
   },
   "homepage": "https://github.com/theamazingfedex/socketshare#README",
   "bin": {
@@ -39,11 +38,6 @@
     "tinyurl": "1.0.8"
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.5.2",
-    "@commitlint/config-conventional": "^7.5.0",
-    "@commitlint/prompt": "^7.5.0",
-    "@semantic-release/changelog": "^3.0.2",
-    "@semantic-release/git": "^7.0.8",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.3",
     "babel-loader": "6.2.x",
@@ -52,9 +46,7 @@
     "blue-tape": "0.1.x",
     "coveralls": "3.0.3",
     "faucet": "0.0.1",
-    "husky": "^1.3.1",
     "nyc": "13.3.0",
-    "semantic-release": "^15.13.3",
     "touch": "3.1.0"
   },
   "babel": {
@@ -73,20 +65,5 @@
     "terminal",
     "cmd",
     "node"
-  ],
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "@commitlint/prompt"
-    }
-  }
+  ]
 }
